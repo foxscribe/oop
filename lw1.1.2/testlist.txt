@@ -1,0 +1,10 @@
+- [ ] two identical files
+- [ ] two slightly different files
+- [ ] two completely different files
+- [X] no files
+- [X] one file
+- [X] three files
+- [ ] first non-existent file
+- [ ] second non-existent file
+- [ ] both non-existent files
+- [ ] same file twice
