@@ -4,35 +4,35 @@
 #include <string>
 #include <utility>
 
-std::pair<bool, int> compare(std::string first_filename, std::string second_filename)
+std::pair<bool, int> Compare(std::string firstFilename, std::string secondFilename)
 {
-    std::ifstream first_file(first_filename);
-    if (!first_file.is_open())
+    std::ifstream firstFile(firstFilename);
+    if (!firstFile.is_open())
     {
-        std::println("Error: File {} does not exist", first_filename);
+        std::println("Error: File {} does not exist", firstFilename);
         std::exit(3);
     }
-    std::ifstream second_file(second_filename);
-    if (!second_file.is_open())
+    std::ifstream secondFile(secondFilename);
+    if (!secondFile.is_open())
     {
-        std::println("Error: File {} does not exist", second_filename);
+        std::println("Error: File {} does not exist", secondFilename);
         std::exit(3);
     }
 
-    int line = 1;
-    std::string line_first, line_second;
-    while (std::getline(first_file, line_first) && std::getline(second_file, line_second))
+    int lineNumber = 1;
+    std::string lineFirst, lineSecond;
+    while (std::getline(firstFile, lineFirst) && std::getline(secondFile, lineSecond))
     {
-        if (line_first.compare(line_second) != 0)
+        if (lineFirst.compare(lineSecond) != 0)
         {
-            return std::pair(false, line);
+            return std::pair(false, lineNumber);
         }
-        line++;
+        lineNumber++;
     }
 
-    if (std::getline(first_file, line_first) || std::getline(second_file, line_second))
+    if (std::getline(firstFile, lineFirst) || std::getline(secondFile, lineSecond))
     {
-        return std::pair(false, line + 1);
+        return std::pair(false, lineNumber);
     }
 
     return std::pair(true, 0);
@@ -46,15 +46,15 @@ int main(int argc, char **argv)
         return 2;
     }
 
-    std::string first_filename(argv[1]);
-    std::string second_filename(argv[2]);
-    if (first_filename.compare(second_filename) == 0)
+    std::string firstFilename(argv[1]);
+    std::string secondFilename(argv[2]);
+    if (firstFilename.compare(secondFilename) == 0)
     {
         std::println("Error: Given the same file twice");
         return 4;
     }
 
-    auto result = compare(first_filename, second_filename);
+    auto result = Compare(firstFilename, secondFilename);
     if (result.first)
     {
         std::println("Files are equal");

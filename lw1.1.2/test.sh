@@ -25,10 +25,10 @@ fi
 # Test 3: Completely different files
 output=$($executable $tf_dir/1.txt $tf_dir/4.txt)
 exit_code=$?
-if [[ "$output" == "Files are different. Line number is 9" ]] && [[ "$exit_code" -eq 1 ]]; then
+if [[ "$output" == "Files are different. Line number is 8" ]] && [[ "$exit_code" -eq 1 ]]; then
     echo "Test 3 Passed: Completely different files"
 else
-    echo "Test 3 Failed: Expected 'Files are different. Line number is 9' and 1, got '$output' and $exit_code"
+    echo "Test 3 Failed: Expected 'Files are different. Line number is 8' and 1, got '$output' and $exit_code"
 fi
 
 # Test 4: No files
