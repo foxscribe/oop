@@ -1,0 +1,7 @@
+- [X] blank string
+- [X] all spaces
+- [X] no spaces
+- [X] one side one space
+- [X] two sides one space
+- [X] one side many spaces
+- [X] two sides many spaces
