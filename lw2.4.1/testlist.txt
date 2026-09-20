@@ -1,0 +1,4 @@
+- [X] empty sets
+- [X] no intersect
+- [X] one intersects
+- [X] many intersect
