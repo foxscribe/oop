@@ -1,0 +1,8 @@
+- [X] minimal value
+- [X] maximum value
+- [X] regular value (6)
+- [X] out of bounds up value
+- [X] out of bounds down value
+- [X] no arguments
+- [X] two arguments
+- [X] wrong argument type
