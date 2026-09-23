@@ -100,3 +100,23 @@ if [[ "$output" == $expected ]] && [[ "$exit_code" -eq 4 ]]; then
 else
     echo "Test 10 Failed: Expected '$expected' and 4, got '$output' and $exit_code"
 fi
+
+# Test 11: Empty and CRLF
+expected="Files are different. Line number is 1"
+output=$($executable $tf_dir/6.txt $tf_dir/7.txt)
+exit_code=$?
+if [[ "$output" == $expected ]] && [[ "$exit_code" -eq 1 ]]; then
+    echo "Test 11 Passed: Empty and CRLF"
+else
+    echo "Test 11 Failed: Expected '$expected' and 1, got '$output' and $exit_code"
+fi
+
+# Test 12: LF and CRLF
+expected="Files are different. Line number is 1"
+output=$($executable $tf_dir/5.txt $tf_dir/7.txt)
+exit_code=$?
+if [[ "$output" == $expected ]] && [[ "$exit_code" -eq 1 ]]; then
+    echo "Test 12 Passed: LF and CRLF"
+else
+    echo "Test 12 Failed: Expected '$expected' and 1, got '$output' and $exit_code"
+fi

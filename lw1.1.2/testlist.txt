@@ -8,3 +8,5 @@
 - [X] second non-existent file
 - [X] both non-existent files
 - [X] same file twice
+- [X] Empty and CRLF
+- [X] LF and CRLF
