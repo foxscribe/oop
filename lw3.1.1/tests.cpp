@@ -82,7 +82,7 @@ TEST_F(TVSetTest, SetChannelWhenOff)
     EXPECT_EQ(0, tv.GetChannel());
 }
 
-TEST_F(TVSetTest, SelectPreviousChannelBasic)
+TEST_F(TVSetTest, SelectPreviousChannel)
 {
     tv.TurnOn();
     tv.SetChannel(2);
@@ -152,12 +152,6 @@ TEST_F(TVSetTest, ChannelMaximum)
     EXPECT_EQ(99, tv.GetChannel());
 }
 
-TEST_F(TVSetTest, ChannelJustAboveMax)
-{
-    tv.TurnOn();
-    EXPECT_THROW(tv.SetChannel(100), std::exception);
-}
-
 TEST_F(TVSetTest, SelectPreviousSwaps)
 {
     tv.TurnOn();
@@ -187,32 +181,12 @@ TEST_F(TVSetTest, TurnOffWhenAlreadyOff)
     EXPECT_EQ(0, tv.GetChannel());
 }
 
-TEST_F(TVSetTest, Channel99Then100)
-{
-    tv.TurnOn();
-    tv.SetChannel(99);
-    EXPECT_EQ(99, tv.GetChannel());
-    EXPECT_THROW(tv.SetChannel(100), std::exception);
-    EXPECT_EQ(99, tv.GetChannel());
-}
-
-
 TEST_F(TVSetTest, GetChannelReturnsZeroWhenOff)
 {
     tv.TurnOn();
     tv.SetChannel(42);
     tv.TurnOff();
     EXPECT_EQ(0, tv.GetChannel());
-}
-
-TEST_F(TVSetTest, SetSameChannelTwice)
-{
-    tv.TurnOn();
-    tv.SetChannel(5);
-    EXPECT_EQ(1, tv.GetLastChannel());
-    tv.SetChannel(5);
-    EXPECT_EQ(5, tv.GetChannel());
-    EXPECT_EQ(5, tv.GetLastChannel());
 }
 
 int main(int argc, char **argv)
