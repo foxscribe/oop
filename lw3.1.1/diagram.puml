@@ -1,0 +1,30 @@
+@startuml
+!theme plain
+class TVController {
+    +TVController()
+    +Run()
+    +Info()
+    +TurnOn()
+    +TurnOff()
+    +SelectChannel(int channel)
+    +SelectPreviousChannel()
+    -m_tv: TVSet
+    -m_commands: std::unordered_map
+}
+
+class TVSet {
+    +TVSet()
+    +TurnOn()
+    +TurnOff()
+    +IsTurnedOn(): bool
+    +GetChannel(): int
+    +GetLastChannel(): int
+    +SetChannel(int channel)
+    +SelectPreviousChannel()
+    -m_currentChannel: int
+    -m_lastChannel: int
+    -m_power: bool
+}
+
+TVController --> TVSet : uses
+@enduml
