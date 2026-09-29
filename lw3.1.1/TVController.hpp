@@ -2,7 +2,7 @@
 
 #include "TVSet.hpp"
 #include <functional>
-#include <string>
+#include <string_view>
 
 class TVController
 {
@@ -18,5 +18,5 @@ public:
 
 private:
     TVSet m_tv;
-    std::unordered_map<std::string, std::function<void()>> m_commands;
+    std::unordered_map<std::string_view, std::function<void()>> m_commands;
 };

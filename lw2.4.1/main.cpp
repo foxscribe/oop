@@ -4,9 +4,14 @@
 #include <string>
 #include <iostream>
 #include <cstdlib>
+#include <string_view>
 #include "solution.hpp"
 
-#define ERROR "ERROR"
+namespace
+{
+    inline constexpr std::string_view ERROR     = "ERROR";
+    inline constexpr std::string_view HELP_FLAG = "-h";
+}
 
 void ShowHelp()
 {
@@ -48,7 +53,7 @@ int main(int argc, char* argv[])
     if (argc > 1)
     {
         std::string arg = argv[1];
-        if (arg == "-h")
+        if (arg == HELP_FLAG)
         {
             ShowHelp();
             return 0;

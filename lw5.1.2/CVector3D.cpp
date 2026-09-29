@@ -67,7 +67,7 @@ CVector3D CVector3D::operator*(double scalar) const
 CVector3D CVector3D::operator/(double scalar) const
 {
     if (scalar != 0.0)
-{
+    {
         return CVector3D(x / scalar, y / scalar, z / scalar);
     }
     return CVector3D(0.0, 0.0, 0.0);

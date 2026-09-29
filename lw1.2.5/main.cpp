@@ -2,11 +2,22 @@
 #include <exception>
 #include <print>
 #include <string>
+#include <string_view>
+
+namespace
+{
+    inline constexpr int BITS              = 8;
+    inline constexpr int REQUIRED_ARGS     = 2;
+    inline constexpr int MIN               = 0;
+    inline constexpr int MAX               = 256;
+    inline constexpr std::string_view HELP = "Usage: {} <input byte>";
+    inline constexpr std::string_view ERR  = "Error: Invalid value";
+}
 
 uint8_t Flip(uint8_t x)
 {
     uint8_t result = 0;
-    for (int i = 8; i; i--) {
+    for (int i = BITS; i; i--) {
         result = (result << 1) | (x & 1);
         x >>= 1;
     }
@@ -15,9 +26,9 @@ uint8_t Flip(uint8_t x)
 
 int main(int argc, char **argv)
 {
-    if (argc != 2)
+    if (argc != REQUIRED_ARGS)
     {
-        std::println("Usage: {} <input byte>", argv[0]);
+        std::println(HELP, argv[0]);
         return 0;
     }
 
@@ -28,12 +39,12 @@ int main(int argc, char **argv)
     }
     catch (std::exception _)
     {
-        std::println("Error: Invalid value");
+        std::println(ERR);
         return 0;
     }
-    if (byte > 255 || byte < 0)
+    if (byte >= MAX || byte < MIN)
     {
-        std::println("Error: Invalid value");
+        std::println(ERR);
         return 0;
     }
 

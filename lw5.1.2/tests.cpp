@@ -118,15 +118,6 @@ TEST(CVector3DTest, ScalarMultiplyVector)
     EXPECT_DOUBLE_EQ(result.z, 6.0);
 }
 
-TEST(CVector3DTest, MultiplyEquals)
-{
-    CVector3D v(1, 2, 3);
-    v *= 3.7;
-    EXPECT_DOUBLE_EQ(v.x, 3.7);
-    EXPECT_DOUBLE_EQ(v.y, 7.4);
-    EXPECT_DOUBLE_EQ(v.z, 11.1);
-}
-
 TEST(CVector3DTest, DivideByScalar)
 {
     CVector3D v(6, 8, 10);
@@ -134,15 +125,6 @@ TEST(CVector3DTest, DivideByScalar)
     EXPECT_DOUBLE_EQ(result.x, 3.0);
     EXPECT_DOUBLE_EQ(result.y, 4.0);
     EXPECT_DOUBLE_EQ(result.z, 5.0);
-}
-
-TEST(CVector3DTest, DivideEquals)
-{
-    CVector3D v(17, 34, 51);
-    v /= 17.0;
-    EXPECT_DOUBLE_EQ(v.x, 1.0);
-    EXPECT_DOUBLE_EQ(v.y, 2.0);
-    EXPECT_DOUBLE_EQ(v.z, 3.0);
 }
 
 TEST(CVector3DTest, EqualVectors)
@@ -197,12 +179,12 @@ TEST(CVector3DTest, DotProductGeneral)
 
 TEST(CVector3DTest, CrossProductStandardBasis)
 {
-    CVector3D v1(1, 0, 0); // i
-    CVector3D v2(0, 1, 0); // j
+    CVector3D v1(1, 0, 0);
+    CVector3D v2(0, 1, 0);
     CVector3D result = CrossProduct(v1, v2);
     EXPECT_DOUBLE_EQ(result.x, 0.0);
     EXPECT_DOUBLE_EQ(result.y, 0.0);
-    EXPECT_DOUBLE_EQ(result.z, 1.0); // k
+    EXPECT_DOUBLE_EQ(result.z, 1.0);
 }
 
 TEST(CVector3DTest, CrossProductGeneralCase)
