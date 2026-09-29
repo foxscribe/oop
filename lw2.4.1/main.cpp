@@ -6,6 +6,16 @@
 #include <cstdlib>
 #include "solution.hpp"
 
+#define ERROR "ERROR"
+
+void ShowHelp()
+{
+    std::println("Usage: program [N]");
+    std::println("  N - positive integer");
+    std::println("  If N is not provided, it will be read from stdin");
+    std::println("  -h - show this help");
+}
+
 int SumOfDigits(int n)
 {
     int sum = 0;
@@ -40,10 +50,7 @@ int main(int argc, char* argv[])
         std::string arg = argv[1];
         if (arg == "-h")
         {
-            std::println("Usage: program [N]");
-            std::println("  N - positive integer");
-            std::println("  If N is not provided, it will be read from stdin");
-            std::println("  -h - show this help");
+            ShowHelp();
             return 0;
         }
 
@@ -53,13 +60,13 @@ int main(int argc, char* argv[])
             n = std::stoi(arg, &pos);
             if (pos != arg.length() || n <= 0)
             {
-                std::println("ERROR");
+                std::println(ERROR);
                 return 1;
             }
         }
         catch (std::exception _)
         {
-            std::println("ERROR");
+            std::println(ERROR);
             return 1;
         }
     }
@@ -67,7 +74,7 @@ int main(int argc, char* argv[])
     {
         if (!(std::cin >> n) || n <= 0)
         {
-            std::println("ERROR");
+            std::println(ERROR);
             return 0;
         }
     }
