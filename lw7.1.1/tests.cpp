@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include <string>
 #include "sort.hpp"
 
 TEST(TemplateSortTest, IntTwoSort)
@@ -42,6 +43,22 @@ TEST(TemplateSortTest, CharTwoSort)
 }
 
 TEST(TemplateSortTest, CharTwoNoSort)
+{
+    char a = 'a', b = 'c';
+    Sort2(a, b);
+    EXPECT_EQ(a, 'a');
+    EXPECT_EQ(b, 'c');
+}
+
+TEST(TemplateSortTest, StrTwoSort)
+{
+    std::string a = "qwerty", b = "dvorak";
+    Sort2(a, b);
+    EXPECT_EQ(a, "dvorak");
+    EXPECT_EQ(b, "qwerty");
+}
+
+TEST(TemplateSortTest, StrTwoNoSort)
 {
     char a = 'a', b = 'c';
     Sort2(a, b);
