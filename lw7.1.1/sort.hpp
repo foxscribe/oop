@@ -1,3 +1,5 @@
+#pragma once
+
 template <typename T>
 void Sort2(T & first, T & second)
 {
