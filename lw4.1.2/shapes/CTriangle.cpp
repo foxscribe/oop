@@ -2,6 +2,12 @@
 #include <cstdlib>
 #include <format>
 
+namespace
+{
+    inline constexpr auto OUTPUT_FORMAT =
+        "triangle(v1={}, v2={}, v3={}, outline=#{:X}, fill=#{:X}, S={}, P={})";
+}
+
 CTriangle::CTriangle(CPoint vertex1, CPoint vertex2, CPoint vertex3, uint32_t outline, uint32_t fill)
     : m_vertex1(vertex1), m_vertex2(vertex2), m_vertex3(vertex3), m_outline(outline), m_fill(fill)
 {
@@ -25,7 +31,8 @@ double CTriangle::GetPerimeter() const
 
 std::string CTriangle::ToString() const
 {
-    return std::format("triangle(v1={}, v2={}, v3={})", m_vertex1, m_vertex2, m_vertex3);
+    return std::format(OUTPUT_FORMAT, m_vertex1, m_vertex2, m_vertex3,
+        m_outline, m_fill, GetArea(), GetPerimeter());
 }
 
 uint32_t CTriangle::GetOutlineColor() const

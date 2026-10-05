@@ -1,6 +1,11 @@
 #include "../include/CRectangle.hpp"
 #include <format>
 
+namespace
+{
+    inline constexpr auto OUTPUT_FORMAT =
+        "rect(start={}, width={}, height={}, outline=#{:X}, fill=#{:X}, S={}, P={})";
+}
 
 CRectangle::CRectangle(CPoint start, double width, double height, uint32_t outline, uint32_t fill)
     : m_start(start), m_width(width), m_height(height), m_outline(outline), m_fill(fill)
@@ -19,7 +24,8 @@ double CRectangle::GetPerimeter() const
 
 std::string CRectangle::ToString() const
 {
-    return std::format("rectangle(start={}, width={}, height={})", m_start, m_width, m_height);
+    return std::format(OUTPUT_FORMAT, m_start, m_width, m_height,
+        m_outline, m_fill, GetArea(), GetPerimeter());
 }
 
 uint32_t CRectangle::GetOutlineColor() const

@@ -37,5 +37,6 @@ add_executable(main
     shapes/CPoint.cpp
     shapes/CRectangle.cpp
     shapes/CTriangle.cpp
+    CShapeParser.cpp
     Program.cpp
     main.cpp)

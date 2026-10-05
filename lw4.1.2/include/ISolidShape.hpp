@@ -3,7 +3,7 @@
 #include "IShape.hpp"
 #include <cstdint>
 
-class ISolidShape : IShape
+class ISolidShape : public IShape
 {
 public:
     virtual uint32_t GetFillColor() const = 0;

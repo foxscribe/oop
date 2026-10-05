@@ -4,6 +4,12 @@
 #include <cstdlib>
 #include <format>
 
+namespace
+{
+    inline constexpr auto OUTPUT_FORMAT =
+        "line(start={}, end={}, outline=#{:X}, S={}, P={})";
+}
+
 CLineSegment::CLineSegment(CPoint start, CPoint end, uint32_t outline)
     : m_start(start), m_end(end), m_outline(outline)
 {
@@ -21,7 +27,7 @@ double CLineSegment::GetPerimeter() const
 
 std::string CLineSegment::ToString() const
 {
-    return std::format("line(start={}, end={})", m_start, m_end);
+    return std::format(OUTPUT_FORMAT, m_start, m_end, m_outline, GetArea(), GetPerimeter());
 }
 
 uint32_t CLineSegment::GetOutlineColor() const
