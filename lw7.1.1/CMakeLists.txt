@@ -15,7 +15,7 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_executable(run_tests main.cpp sort.cpp tests.cpp)
+add_executable(run_tests sort.cpp tests.cpp)
 target_link_libraries(run_tests GTest::gtest_main)
 
 include(GoogleTest)
