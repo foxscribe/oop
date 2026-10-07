@@ -40,9 +40,11 @@ TEST(CTriangleTest, GetArea_ReturnsCorrectArea)
     EXPECT_DOUBLE_EQ(triangle.GetArea(), 6.0);
 }
 
+// [x] TODO: протестировать на ненулевой периметр
 TEST(CTriangleTest, GetArea_ReturnsZero)
 {
     CTriangle triangle({0.0, 0.0}, {2.0, 0.0}, {4.0, 0.0}, 0xFF0000, 0x00FF00);
+    EXPECT_DOUBLE_EQ(triangle.GetPerimeter(), 8.0);
     EXPECT_DOUBLE_EQ(triangle.GetArea(), 0.0);
 }
 

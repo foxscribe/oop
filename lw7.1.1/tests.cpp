@@ -66,6 +66,23 @@ TEST(TemplateSortTest, StrTwoNoSort)
     EXPECT_EQ(b, 'c');
 }
 
+// [x] TODO: тесты с русскими буквами для std::string
+TEST(TemplateSortTest, StrTwoSortRus)
+{
+    std::string a = "йцукен", b = "абвгд";
+    Sort2(a, b);
+    EXPECT_EQ(a, "абвгд");
+    EXPECT_EQ(b, "йцукен");
+}
+
+TEST(TemplateSortTest, StrTwoNoSortRus)
+{
+    std::string a = "абвгд", b = "йцукен";
+    Sort2(a, b);
+    EXPECT_EQ(a, "абвгд");
+    EXPECT_EQ(b, "йцукен");
+}
+
 TEST(TemplateSortTest, CstrTwoSort)
 {
     const char *a = "qwerty", *b = "dvorak";
