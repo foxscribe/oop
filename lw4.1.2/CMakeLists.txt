@@ -16,6 +16,8 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(run_tests
+    Program.cpp
+    CShapeParser.cpp
     shapes/CCircle.cpp
     shapes/CLineSegment.cpp
     shapes/CPoint.cpp
@@ -25,7 +27,8 @@ add_executable(run_tests
     tests/CLineSegment_tests.cpp
     tests/CPoint_tests.cpp
     tests/CRectangle_tests.cpp
-    tests/CTriangle_tests.cpp)
+    tests/CTriangle_tests.cpp
+    tests/Program_tests.cpp)
 target_link_libraries(run_tests GTest::gtest GTest::gtest_main)
 
 include(GoogleTest)

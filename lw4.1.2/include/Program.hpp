@@ -11,11 +11,10 @@ public:
     Program(std::istream& in, std::ostream& out);
 
     void Run();
-
-private:
     IShape* FindLargestArea();
     IShape* FindSmallestPerimeter();
 
+private:
     std::vector<std::unique_ptr<IShape>> m_shapes;
     CShapeParser m_parser;
     std::istream& m_in;
